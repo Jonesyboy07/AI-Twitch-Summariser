@@ -1,5 +1,9 @@
-# Twitch Chat Summarizer & Discord TTS Bot
+# Twitch Chat Summarizer & Discord TTS Bot - V1.0.1
 
+### Newest Update:
+Added in better explanation to readme.md for AI Prompt.
+
+## Description
 This project captures Twitch chat messages, summarizes them using AI, generates a text-to-speech (TTS) audio file, and plays it in a Discord voice channel. It also provides a web overlay to display the summary.
 
 ## Features
@@ -88,6 +92,13 @@ USE_OBS_BROWSER_SOURCE= # Set to True to use the OBS Browser Source feature, els
 ## AI Prompt
 
 The current setup found in `summarizer.py` is setup for "Deadlock". I have kept this prompt in to show you the level of detail you need to get an adequate response. Even the current one is not perfect.
+
+Your prompt should have this following section in:
+```txt
+Chat messages:
+{messages}
+```
+This is where the code automatically places in the twitch messages in the `make_prompt` function.
 
 I highly reccomend spending a lot of time testing, and tweaking your prompt to get the best results possible.
 
