@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deadlock TTS Overlay</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* OBS overlay will see through */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #summary {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* makes text readable on any background */
+            padding: 20px;
+            max-width: 90%;
+        }
+
+        /* Optional: smooth fade-in for new messages */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="summary">Waiting for Deadlock TTS advice...</div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+
+        ws.onmessage = function(event) {
+            const summaryDiv = document.getElementById('summary');
+            summaryDiv.classList.remove('fade-in'); // reset animation
+            void summaryDiv.offsetWidth; // trigger reflow
+            summaryDiv.textContent = event.data;
+            summaryDiv.classList.add('fade-in');
+        };
+
+        ws.onopen = function() {
+            console.log('Connected to Deadlock TTS WebSocket overlay.');
+        };
+
+        ws.onclose = function() {
+            console.log('WebSocket connection closed.');
+        };
+    </script>
+</body>
+</html>

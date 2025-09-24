@@ -1,0 +1,21 @@
+{
+  "name": "twitch-discord-tts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.15.0",
+    "axios": "^1.12.2",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.2",
+    "edge-tts": "^1.0.1",
+    "express": "^4.21.2",
+    "say": "^0.16.0",
+    "tmi.js": "^1.8.5",
+    "tweetnacl": "^1.0.3",
+    "winston": "^3.17.0",
+    "ws": "^8.18.3"
+  }
+}
