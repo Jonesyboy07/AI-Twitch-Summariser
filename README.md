@@ -23,13 +23,7 @@ This project captures Twitch chat messages, summarizes them using AI, generates 
 
 ## Usage
 
-You are allowed to:
-
-> Edit
-> Modify
-> Adjust
-
-my code. I ask upon using it, any large things you change can be fed back so I can update if I feel its a larger want/need. If possible, creditation is always appreciated!
+You are allowed to Edit, Modify & Adjust my code. I ask upon using it, any large things you change can be fed back so I can update if I feel its a larger want/need. If possible, creditation is always appreciated!
 
 ## Setup
 
